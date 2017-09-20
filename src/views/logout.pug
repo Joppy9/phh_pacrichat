@@ -1,0 +1,12 @@
+extends layout.pug
+block head
+  title ログアウト
+block content
+  .container-fluid
+    .row
+      .col-md-6.col-md-offset-3
+        .page-header
+        form(action="/logout" method="post")
+          p 本当にログアウトしますか？
+          a.navbar-brand.btn(href="/timeline") そのまま(TLへ)
+          input.btn-default.btn-lg(type="submit"  value="ログアウト") 

@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    script(src="/bundle.js")
+    block head
+      title Pacrichat
+  body 
+    .navbar.navbar-inverse.navbar-static-top
+      ul.nav.nav-tabs
+        li
+          a.navbar-brand.glyphicon.glyphicon-comment(href="/") 
+        if currentUser
+          li
+            a.navbar-brand.glyphicon.glyphicon-user(href='/user_profile/' + currentUser.data.nickname)
+        li
+          a.navbar-brand.glyphicon.glyphicon-home(href="/toppage") 
+        li.pull-right
+          a.navbar-brand.glyphicon.glyphicon-log-out(href="/logout")
+  .container      
+    block content
