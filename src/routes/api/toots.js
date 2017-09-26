@@ -6,10 +6,14 @@ module.exports = function (app) {
       res.status(401).json({ 'error': 'Unauthorized' })
       return;
     }
-    res.locals.currentUser.toots().order('id','desc').then((toots) => {
-      res.json(toots.map((toots) => {
-        return toots.data;
-      }));
+    Toot.all_toots().order('id', 'desc').then((toots) => {
+      toots = toots.map((toot) => {
+        toot.user().then((user)=>{
+          toot.data.nickname = user.nickname;
+        }); 
+        return toot.data;
+      });
+      res.json(toots);
     }).catch((error) => {
       res.status(500).json({ error: error.toString() });
     });

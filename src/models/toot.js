@@ -1,4 +1,5 @@
 const db = require('../db');
+const Collection = require('./collection');
 const Record = require('./record');
 const redis = require('../redis')
 
@@ -12,6 +13,14 @@ class Toot extends Record {
   static create(user, body) {
     let current_time = Date.now();
     return new this({ user_id: user.data.id, body: body, create_at: current_time }).save();
+  }
+  static all_toots(){
+    return (new Collection(Toot));
+  }
+  user() {
+    const User = require('./user');
+    return User.find(this.data.user_id);
+    // toot.user().data.nickname
   }
   insert() {//絶対保存されたと・・・promiseをwrapする
     let insertPromise = super.insert()

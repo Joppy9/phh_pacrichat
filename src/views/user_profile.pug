@@ -1,12 +1,19 @@
 extends layout.pug
 block head
   title プロフィール
+  style
+    | * {
+    |   font-family: YuGothic;
+    | }
+    | .nickname-color {
+    |   color: gray;
+    | }
 block content
   .container-fluid
     .row
       .col-md-6.col-md-offset-3 
         h1  ユーザー情報
-        h3(style={color:"gray"})  ニックネーム
+        h3.nickname-color ニックネーム
         h4.panel.panel-success.panel-body= nickname
-        h3(style={color:"gray"})  Eメール
+        h3.nickname-color  Eメール
         h4.panel.panel-success.panel-body= email

@@ -1,22 +1,28 @@
 extends layout.pug
 block head
   title ログイン
+  style
+    | * {
+    |   font-family: Tsukushi B Round Gothic;
+    | }
+    | .title-text {
+    |   padding-bottom: 30px;
+    | }
 block content
   .row
     .col-md-6.col-md-offset-3
-      .page-header
-        h1 ログイン
+      h1.title-text ログイン
       form(action="/login" method="post")
-        .form-group
+        .form-group.has-warning
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-envelope
             input.form-control(type="email" name="email" placeholder="メールアドレス" required)
-        .form-group
+        .form-group.has-warning
           .input-group
             span.input-group-addon
               i.glyphicon.glyphicon-lock
             input.form-control(type="password" name="password" placeholder="パスワード" required)
-        .form-group
-          input.btn.btn-primary.btn-lg(type="submit" value="ログイン")
+        .form-group.pull-right
+          input.btn.btn-warning.btn-lg(type="submit" value="ログイン")
         p

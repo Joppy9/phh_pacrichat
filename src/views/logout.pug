@@ -1,11 +1,21 @@
 extends layout.pug
 block head
   title ログアウト
+  style
+    | * {
+    |   font-family: Tsukushi B Round Gothic;
+    | }
+    | .title-text {
+    |   padding-bottom: 30px;
+    | }
+    | .btn-margin {
+    |   margin: 5px;
+    | }
 block content
   .container-fluid
     .row
       .col-md-6.col-md-offset-3
         form(action="/logout" method="post")
-          h3  本当にログアウトしますか？
-          a.navbar-brand.btn.panel.panel-default.panel-body.btn-default.btn-lg(href="/timeline") そのまま(Chatへ)
-          input.btn-default.btn-lg(type="submit"  value="ログアウト") 
+          h1.title-text  本当にログアウトしますか？
+          a.navbar-brand.btn.btn-warning.btn-lg.btn-margin(href="/timeline") そのまま(Chatへ)
+          input.btn.btn-warning.btn-lg.btn-margin(type="submit"  value="ログアウト") 

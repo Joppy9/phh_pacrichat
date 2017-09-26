@@ -4,14 +4,17 @@ block head
   link(href="/timeline.css")
   script(src="/notify.js")
   style
+    | * {
+    |   font-family: Hiragino Maru Gothic ProN;
+    | }
     | body {
     |   overflow-y: scroll !important;
     | }
-    | .form-style{
-    |   text-align: right;
-    | }
     | .modal-open, .modal {
     |   padding-right: 0px !important;
+    | }
+    | .form-style{
+    |   text-align: right;
     | }
     | .moda;{
     |   text-align: left; 
@@ -22,7 +25,7 @@ block head
     | .toot-body {
     |   white-space: pre-wrap;
     |   word-break: break-all;
-    |   padding-bottom: 5px;
+    |   padding-bottom: 10px;
     | }
     | .write {
     |   margin-bottom: 5px; 
@@ -47,6 +50,7 @@ block content
             .media.panel.panel-success.panel-body(v-for="toot in toots")
               .media-body.h3.toot-body
                 | {{ toot.body }} 
+              h4= nickname
               button.btn.btn-default.panel-danger.pull-right(v-on:click="deleteToot($event,toot.id)")
                 id.glyphicon.glyphicon-trash
               | {{ toot.created_at.toLocaleString() }}

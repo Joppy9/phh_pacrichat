@@ -7,10 +7,6 @@ html
     script(src="https://code.jquery.com/jquery-3.2.1.js")
     script window.jQuery = window.$ = require('jquery');
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    style 
-      | * {
-      |   font-family: Hiragino Maru Gothic ProN;
-      | }
   block head
     title chatdon
   body
@@ -21,9 +17,11 @@ html
         if currentUser
           li
             a.navbar-brand.glyphicon.glyphicon-user(href='/user_profile/' + currentUser.data.nickname) 
-        li
-          a.navbar-brand.glyphicon.glyphicon-home(href="/toppage") 
-        li.pull-right
-          a.navbar-brand.glyphicon.glyphicon-log-out(href="/logout")
+        if !currentUser
+          li
+            a.navbar-brand.glyphicon.glyphicon-home(href="/toppage") 
+        if currentUser
+          li.pull-right
+            a.navbar-brand.glyphicon.glyphicon-log-out(href="/logout")
   .container    
     block content

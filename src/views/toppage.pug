@@ -2,11 +2,21 @@
 extends layout.pug
 block head
   title トップページ
+  style
+    | * {
+    |   font-family: Tsukushi B Round Gothic;
+    | }
+    | .title-text {
+    |   padding-bottom: 30px;
+    | }
+    | .btn-margin {
+    |   margin: 5px;
+    | }
 block content
   .container-fluid
     .row
       .col-md-6.col-md-offset-3
-        h1 トップページ 
-        a.navbar-brand.panel.panel-success.panel-body(href="/login") 今すぐログイン
-        a.navbar-brand.panel.panel-success.panel-body(href="/signup") もしくはサインアップ
+        h1.title-text トップページ 
+        a.navbar-brand.btn.btn-success.btn-lg.btn-margin(href="/login") 今すぐログイン
+        a.navbar-brand.btn.btn-success.btn-lg.btn-margin(href="/signup") もしくはサインアップ
         img.img-responsive(src="/logo1.png") 

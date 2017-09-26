@@ -31,7 +31,6 @@ class User extends Record {
       })
     });
   }
-
   static find_by_nickname(nickname) {
     return new Promise((resolve, reject) => {
       db.query(
@@ -50,7 +49,6 @@ class User extends Record {
       })
     });
   }
-
   static authenticate(email,raw_password){
     return new Promise((resolve,reject)=>{
        this.collection().where({ email: email }).then((users) => {
