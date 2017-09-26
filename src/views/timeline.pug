@@ -30,6 +30,9 @@ block head
     | .write {
     |   margin-bottom: 5px; 
     | }
+    | .user_name{
+    |   color: gray; 
+    | }
 block content
   .container-fluid
     #timeline.row
@@ -48,11 +51,14 @@ block content
         #toots
           .model-content
             .media.panel.panel-success.panel-body(v-for="toot in toots")
+              .media-header.h4.user_name 
+                | {{ toot.nickname }}
               .media-body.h3.toot-body
-                | {{ toot.body }} 
-              h4= nickname
+                | {{ toot.body }}
               button.btn.btn-default.panel-danger.pull-right(v-on:click="deleteToot($event,toot.id)")
                 id.glyphicon.glyphicon-trash
-              | {{ toot.created_at.toLocaleString() }}
+              .h5.user_name
+                | {{ toot.created_at.toLocaleString() }}
+
 
 

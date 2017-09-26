@@ -7,13 +7,16 @@ module.exports = function (app) {
       return;
     }
     Toot.all_toots().order('id', 'desc').then((toots) => {
-      toots = toots.map((toot) => {
-        toot.user().then((user)=>{
-          toot.data.nickname = user.nickname;
-        }); 
-        return toot.data;
+      let users = toots.map((toot) => {
+        return toot.user();//tootのuserの配列
       });
-      res.json(toots);
+      Promise.all(users).then((users) => {//解決
+        res.json(toots.map((toot, idx) => {//tootのuserの配列
+          let data = toot.data;
+          data.nickname = users[idx].data.nickname;//くっつける
+          return data;
+        }));
+      })
     }).catch((error) => {
       res.status(500).json({ error: error.toString() });
     });

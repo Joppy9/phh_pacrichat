@@ -5,6 +5,14 @@ module.exports = function(app){
     let subscriber = redis();
 
     subscriber.on('message',(channel,message)=>{
+      /*//jsonに直す
+      message = JSON.parse(message);
+      message.toot.nickname = currentUser.toot;
+      //object
+      message = JSON.stringify(message)
+      //json
+      //JSON.parse(message)
+      */
       ws.send(message);
     })
     subscriber.subscribe('local');

@@ -7,21 +7,22 @@ html
     script(src="https://code.jquery.com/jquery-3.2.1.js")
     script window.jQuery = window.$ = require('jquery');
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+
   block head
     title chatdon
   body
     .navbar.navbar-inverse.navbar-static-top
       ul.nav.nav-tabs
         li
-          a.navbar-brand.glyphicon.glyphicon-comment(href="/")
+          a.navbar-brand.glyphicon.glyphicon-comment(href="/") チャット
         if currentUser
           li
-            a.navbar-brand.glyphicon.glyphicon-user(href='/user_profile/' + currentUser.data.nickname) 
+            a.navbar-brand.glyphicon.glyphicon-user(href='/user_profile/' + currentUser.data.nickname) ユーザ 
         if !currentUser
           li
-            a.navbar-brand.glyphicon.glyphicon-home(href="/toppage") 
+            a.navbar-brand.glyphicon.glyphicon-home(href="/toppage") トップ
         if currentUser
           li.pull-right
-            a.navbar-brand.glyphicon.glyphicon-log-out(href="/logout")
+            a.navbar-brand.glyphicon.glyphicon-log-out(href="/logout") ログアウト
   .container    
     block content
