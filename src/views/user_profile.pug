@@ -4,11 +4,9 @@ block head
 block content
   .container-fluid
     .row
-      .col-md-6.col-md-offset-3
-        .page-header  
-          h1  プロフィール
-        h3  ユーザー情報
-        h4(style={color:"gray"})  ニックネーム
-        p.panel.panel-default.panel-body= nickname
-        h4(style={color:"gray"})  Eメール
-        p.panel.panel-default.panel-body= email
+      .col-md-6.col-md-offset-3 
+        h1  ユーザー情報
+        h3(style={color:"gray"})  ニックネーム
+        h4.panel.panel-success.panel-body= nickname
+        h3(style={color:"gray"})  Eメール
+        h4.panel.panel-success.panel-body= email

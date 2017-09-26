@@ -5,8 +5,7 @@ block content
   .container-fluid
     .row
       .col-md-6.col-md-offset-3
-        .page-header
         form(action="/logout" method="post")
-          p 本当にログアウトしますか？
-          a.navbar-brand.btn(href="/timeline") そのまま(TLへ)
+          h3  本当にログアウトしますか？
+          a.navbar-brand.btn.panel.panel-default.panel-body.btn-default.btn-lg(href="/timeline") そのまま(Chatへ)
           input.btn-default.btn-lg(type="submit"  value="ログアウト") 
